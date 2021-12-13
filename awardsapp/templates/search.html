@@ -1,0 +1,44 @@
+{%extends 'base.html'%} {% load bootstrap4 %}{{block.super}} {{form.media}}
+{% block content %}
+<div class="container">
+        {% if searched_projects %}
+        <h1 class="text-center">Found {{searched_projects|length}} related search for {{message}}</h1>
+        {% else %}
+          <h2> There are no related projects </h2>
+        {% endif %}
+    
+     
+    
+      <div class="row">
+        {% for project in searched_projects %}
+        <div class="col-md-6">
+
+          <h1 class="text-left">{{project.name}}</h1>
+          <div class="card" style="width:280px">
+              <div class="card-header">
+                {% if project.user.profile.pro_photo %}
+                <section> <img style="border-radius: 50% ; padding: 0.15rem;" class=" img-circle" src="{{project.user.profile.pro_photo.url}}" alt="" width="50px" height="50px">  <a href="/profiles/{{project.user.id}}" style="color:black"><strong> {{ project.user.username }}</strong></a></a></section>
+                {% else %}
+                <img src="https://mbtskoudsalg.com/images/user-avatar-png-1.png" alt="Avatar" class="img-responsive" style="border-radius:70%; height:50px;"> {{project.user.username }}
+                {% endif %}
+              </div>        
+                <div class="card-body">
+                    <a class="info" href="/review/{{project.id}}">
+                  <img  src="{{project.screenshot.url}}" alt="" height="250" width="250"></a>
+                  <div class="text-right">
+                      <a class="info" href="/review/{{project.id}}">Reviews</a>
+                  </div>
+                </div>
+            <div class="card-footer">
+              {{project.description}}
+            </div>
+            </div>
+            
+          </div>   
+        </div>
+        {% endfor %}
+      </div>
+      
+      
+    </div>
+    {% endblock %}
