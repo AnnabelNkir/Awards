@@ -1,0 +1,46 @@
+{% load bootstrap4 %} {% block styles %} {% bootstrap_css %}
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="sttlesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+  crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" media="screen" href="main.css" /> {% endblock %} {% block content %}
+
+<body>
+
+  
+   
+          <h1 class="text-center" style="color:rgb(99, 29, 29);">AwwardIT</h1>
+       
+          <h2 class="text-center">Sign Up</h2>
+        
+      
+
+          <form method="post" class="text-center">
+            {% csrf_token %} {% for field in form %}
+            <p>
+              {{ field.label_tag }}<br> {{ field }} {% if field.help_text %}
+              <small style="display: none">{{ field.help_text }}</small>
+              {% endif %} {% for error in field.errors %}
+              <p style="color: red">{{ error }}</p>
+              {% endfor %}
+            </p>
+            {% endfor %}
+            <button class="btn btn-primary" type="submit">Sign up</button>
+            
+              <p class="forgot">Already have an account? <a href="/accounts/login">Login</a></p>
+            
+          </form>
+  
+
+    
+</body>
+
+<style>
+  @media screen and (max-width: 1280px) {
+    body {
+
+       font-size: 50px;
+    }
+    
+  }
+</style>
+{% endblock %}
