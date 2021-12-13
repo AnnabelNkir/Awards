@@ -1,0 +1,138 @@
+{%extends 'base.html'%} {% load bootstrap4 %}{{block.super}} {{form.media}}{% load staticfiles %} {% block content %}
+
+
+
+
+
+<div class="text-right" style="margin-top:45px;">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Add profile</button>
+    </div>
+        <div class="collapse" id="collapseExample">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                
+                <form action="{%url 'profile'%}" method="post" enctype="multipart/form-data">
+                    {%csrf_token%} {% bootstrap_form image_form %}
+                    <input type="submit" class="btn btn-success btn-lg" value="Post">
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+     
+
+<div class="text-left">
+    
+    <a href="/logout" class="btn btn-danger" style="text-decoration:none;">Logout</a>
+</div>
+ 
+<div class="container">
+
+  {% if user.profile.pro_photo %}
+             ...
+                {% else  %}
+                <div class="card">
+<div class="card-header">
+        <div class="text-right">
+                {{user.username}}
+            </div>
+            <div class="text-left">
+                    {{user.email}}
+                </div>
+</div>
+                    <div class="text-center">
+                        
+                        <img src="https://mbtskoudsalg.com/images/user-avatar-png-1.png" alt="Avatar" class="img-responsive" style="border-radius:70%; height:170px;"> 
+                        
+                        
+                    </div>
+                    </div>
+           
+         
+           {% endif %} 
+
+
+    {% if user.profile.pro_photo %}
+    
+    <div class="card">
+        <div class="card-header">   
+                {% if user.is_authenticated %} 
+                
+                    {{user.username}}
+              
+                <div class="text-right">
+                    {{user.profile.email}}
+                </div>
+    </div>
+    <div class="text-center">
+
+        <img src="{{user.profile.pro_photo.url}}" alt="Avatar" class="img-responsive" style="border-radius:100%; height:150px; width: 150px;">    
+    </div>
+    {% else %}
+    <div class="text-center">
+
+        <img src="https://mbtskoudsalg.com/images/user-avatar-png-1.png" alt="Avatar" class="img-responsive" style="border-radius:70%; height:170px;"> 
+        
+        
+    </div>
+</div>
+    {% endif %} 
+       
+
+<div class="text-right">
+    
+    <h3><em>{{user.profile.bio}}</em></h3>
+</div>
+</div>
+
+<hr> {% else %}
+
+<a class='btn btn-default' href="/accounts/login">.</a>
+
+
+{% endif %}
+
+{% if posts  %}
+<h1 class="text-center">My Projects</h1>
+<div class="row">
+
+    {% for post in posts %}
+    <div class="col-md-4">
+            <div class="card" style="margin-bottom:10px;">
+<div class="card-header">
+    <div class="text-center">
+
+        {{post.name}}
+    </div>
+    <div class="text-right">
+            <a class="info" href="/review/{{post.id}}">Reviews</a>
+        </div>
+</div>
+            <img src="{{post.screenshot.url}}" id="img" width="349" height="200" class="text-center"  alt="" style="margin-bottom:20px;">
+        </div>
+        
+    </div>
+    
+    
+    {% endfor %}
+</div>
+       
+       
+       {% else %}
+       <h1 class="text-center">My Projects</h1>
+       <h1>No projects</h1>
+      
+
+       {% endif %}
+    
+<style>
+
+@media screen and (max-width: 1280px) {
+  #img {
+    height:  200px;
+    width: 310px;
+    
+  }
+}
+</style>
+
+{% endblock %}
