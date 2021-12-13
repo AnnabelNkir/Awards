@@ -25,7 +25,8 @@ class Projects(models.Model):
     screenshot = models.ImageField(upload_to = 'images/',null=True)
     description = models.TextField(null=True)
     link = models.URLField()
-    user = models.ForeignKey(User, null=True)
+    user = models.ForeignKey(User, null=True, blank=True,
+    on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -39,11 +40,18 @@ class Projects(models.Model):
     class Meta:
         ordering = ["-id"]
 
-class Comment(models.Model):
-    comment = models.CharField(max_length =80,null=True)
-    user = models.ForeignKey(User,null=True)
-    project = models.ForeignKey(Projects,related_name='comments',null=True)
 
+class Comment(models.Model):
+    comment = models.ForeignKey(
+    'comment',
+    on_delete=models.CASCADE,
+)
+    user = models.ForeignKey(User, null=True, blank=True,
+    on_delete=models.CASCADE)    
+    project = models.ForeignKey(
+    'project',
+    on_delete=models.CASCADE,
+)
     def __str__(self):
         return self.comment
 
@@ -55,6 +63,8 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ["-id"]
+
+
 
 class Rates(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)

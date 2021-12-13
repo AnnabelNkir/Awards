@@ -32,7 +32,13 @@ SECRET_KEY = 'django-insecure-0a7&t^nqp$q2u0p5cf@h5-th_+vzo+&pc^cy&&ed)x&m@%wa-j
 DEBUG = True
 
 ALLOWED_HOSTS = []
+LOGIN_REDIRECT_URL = 'home'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 # Application definition
 
@@ -46,6 +52,9 @@ INSTALLED_APPS = [
     'awardsapp',
     'bootstrap4',
     'rest_framework',
+    'rest_framework.authtoken',
+    'tinymce',
+
 ]
 
 MIDDLEWARE = [
