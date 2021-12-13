@@ -42,26 +42,22 @@ class Projects(models.Model):
 
 
 class Comment(models.Model):
-    comment = models.ForeignKey(
-    'comment',
-    on_delete=models.CASCADE,
-)
-    user = models.ForeignKey(User, null=True, blank=True,
-    on_delete=models.CASCADE)    
-    project = models.ForeignKey(
-    'project',
-    on_delete=models.CASCADE,
-)
-    def __str__(self):
+      comment = models.CharField(max_length =80,null=True)
+      user = models.ForeignKey(User, null=True, blank=True,
+      on_delete=models.CASCADE)    
+      project = models.ForeignKey(
+     'projects',
+    on_delete=models.CASCADE,)
+def __str__(self):
         return self.comment
 
-    def save_comment(self):
+def save_comment(self):
             self.save()
 
-    def delete_comment(self):
+def delete_comment(self):
         self.delete()
 
-    class Meta:
+class Meta:
         ordering = ["-id"]
 
 

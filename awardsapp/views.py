@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .forms import CommentForm, ProfileForm, ProjectForm, SignupForm, Votes
-from .models import Profile, Projects, Rates
+from .models import Profile, Projects, Rates, Comment
 from .serializer import ProfileSerializer, ProjectsSerializer
 from .permissions import IsAdminOrReadOnly
 from .forms import *
