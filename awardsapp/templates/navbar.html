@@ -1,42 +1,134 @@
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">
-            <span style="font-size:30px; cursor:pointer" onclick="openNav()">&#9776; Menu</span> 
-          </a>
-
-    </div>
-   
-    <div class="red" id="ohmy">
-           
-    </div>
-  
-  <div id="mySidenav" class="sidenav">
-      <h3 style="color: white;"> <img float="right" src="https://mbtskoudsalg.com/images/award-transparent-real-5.png" alt="" height="150px"> Awards</h3>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top " style="background-color:rgb(46, 1, 1)">
+        <a class="navbar-brand" href="/"><img src="https://steamusercontent-a.akamaihd.net/ugc/927049342945161213/3C58BDAFF40278A5E73435071D77F04D71240628/" height="70px" width="70px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
       
-        <hr>
-        <a href="/">Home</a>
-        <a href="#">Login</a>
-        <a href="#">Submit your site</a>
-        <a href="#">Contact</a>
-      </div>
-      
- 
-  <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "0px";
-            document.body.style.backgroundColor = "rgba(0,0,0,0.5)";
-        }
         
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft= "0";
-            document.body.style.backgroundColor = "white";
-        }
-    </script>
-</nav>  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+          <form id="demo-2" action="{% url 'search_results'%}" class="form-inline my-2 my-sm-0">
+              <input type="search" placeholder="Search" name="name">
+            </form>
+        </div>
+        <a href="/profile" style="text-decoration: none; color:aliceblue">
+        <div class="text-center">
+                {% if user.is_authenticated %}
+                {% if user.profile.pro_photo %}
+              <section style="margin-right:20px;"><img src="{{user.profile.pro_photo.url}}" alt="Avatar" class="img-responsive" style="border-radius:100%; height:40px; width: 40px;">{{user.username}}</section>  
+                {% else  %}
+           <section style="margin-right:20px;"><img src="https://mbtskoudsalg.com/images/user-avatar-png-1.png" height="50" width="50" alt="avatar" class="rounded-circle img-responsive">{{user.username}}</section>
+            {% endif %} 
+        </div>
+        </a>
+        
+        
+        
+        <button class="btn btn-primary"><a href="/upload" style="text-decoration:none;color:beige">Submit project</a></button>
+    {% else %}
+    <div class="btn btn-primary"><a href="/accounts/login" style="text-decoration:none; color:aliceblue">Login</a></div>
+    <div class="btn btn-primary"><a href="/signup" style="text-decoration:none; color:aliceblue">Register</a></div>
+    {% endif %}
+        
+            
+       
+      </nav>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+
+
+      <!-- <br>
+      <br><br><br> -->
+     <style>
+     input {
+	outline: none;
+}
+input[type=search] {
+	/* -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box; */
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+input[type=search] {
+	background: #fffcfc url('https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png') no-repeat 9px center;
+	border: solid 1px rgb(7, 2, 2);
+	padding: 9px 10px 9px 32px;
+	width: 55px;
+	
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 130px;
+	background-color: #fff;
+	border-color: rgb(16, 38, 235);
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+input:-moz-placeholder {
+	color: #999;
+}
+input::-webkit-input-placeholder {
+	color: #999;
+}
+/* Demo 2 */
+#demo-2 input[type=search] {
+	width: 15px;
+	padding-left: 10px;
+	color: transparent;
+	cursor: pointer;
+}
+#demo-2 input[type=search]:hover {
+	background-color: rgb(250, 201, 39);
+}
+#demo-2 input[type=search]:focus {
+	width: 130px;
+	padding-left: 32px;
+	color: #000;
+	background-color: #fff;
+	cursor: auto;
+}
+#demo-2 input:-moz-placeholder {
+	color: transparent;
+}
+#demo-2 input::-webkit-input-placeholder {
+	color: transparent;
+}
+.vl {
+    border-left: 1px solid  grey;
+    height: 90px;
+    position:relative;
+    right: 200px;
+}
+.vl2 {
+    border-left: 1px solid rgb(228, 16, 16);
+    height: 90px;
+    position:relative;
+    left: 10%;
+}
+     </style>
+</body>
+
+</html>
