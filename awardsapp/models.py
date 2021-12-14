@@ -10,6 +10,7 @@ class Profile(models.Model):
     pro_photo = models.ImageField(upload_to = 'images/',null=True)
     bio = models.TextField(null=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='profile',null=True)
+
     
     def __str__(self):
         return self.name
