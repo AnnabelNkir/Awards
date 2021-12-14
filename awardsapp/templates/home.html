@@ -6,13 +6,6 @@
 
 <div class="div" style="padding:20px; background-image: url('https://data.whicdn.com/images/279900833/original.gif');background-size:cover ">
     <h5 style="color:rgb(255, 196, 0)" class="text-center">AWARDS HUBSPOT</h5>
-<div class="div" style="padding-bottom: 500px; background-image: url('https://www.istockphoto.com/video/blue-stage-awards-gm1090792768-292604036');background-size: cover">
-
-
-
-</div>
-
-
 
 <div class="container">
       
@@ -21,7 +14,7 @@
         {% for project in projects %}
 
         <div class="col-md-4">
-            <div class="card" style="margin-bottom:10px;">
+            <div class="card" style="margin-bottom:50px;">
                 <div class="card-header">
                         {% if project.user.profile.pro_photo %}
                         <section> <img style="border-radius: 50% ; padding: 0.15rem;" class=" img-circle" src="{{project.user.profile.pro_photo.url}}" alt="" width="50px" height="50px">  <a href="/profiles/{{project.user.id}}" style="color:black"><strong> {{ project.user.username }}</strong></a></a></section>
@@ -129,8 +122,8 @@ padding:7px 14px;
 }
 
 .hovereffect a.info:hover {
-box-shadow:0 0 5px rgb(90, 224, 213);
-color:aqua;
+box-shadow:0 0 5px rgb(1, 9, 32);
+color:rgb(3, 41, 41);
 }
 
 .hovereffect:hover img {
