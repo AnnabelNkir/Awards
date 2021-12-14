@@ -6,7 +6,8 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-light fixed-top " style="background-color:goldenrod">
-        <a class="navbar-brand" href="/"><img src="https://gfycat.com/adolescentfalsekakarikis" height="70px" width="70px"></a>
+        <a class="navbar-brand" href="/">AWARDS</a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,17 +25,18 @@
                 {% if user.profile.pro_photo %}
               <section style="margin-right:20px;"><img src="{{user.profile.pro_photo.url}}" alt="Avatar" class="img-responsive" style="border-radius:100%; height:40px; width: 40px;">{{user.username}}</section>  
                 {% else  %}
-           <section style="margin-right:20px;"><img src="https://www.flaticon.com/fhttps://www.flaticon.com/free-icon/trophy_147210ree-icon/trophy_147210" height="50" width="50" alt="avatar" class="rounded-circle img-responsive">{{user.username}}</section>
+           <section style="margin-right:20px;">{{user.username}}</section>
             {% endif %} 
         </div>
         </a>
-        
-        
-        
-        <button class="btn btn-primary"><a href="/upload/" style="text-decoration:none;color:beige">Submit project</a></button>
+      
+        <button class="btn btn-primary"><a href="/upload/" style="text-decoration:none;color: goldenrod">Submit project</a></button>
     {% else %}
-    <div class="btn btn-primary"><a href="/accounts/login" style="text-decoration:none; color:goldenrod">Login</a></div>
-    <div class="btn btn-primary"><a href="/signup" style="text-decoration:none; color:aliceblue">Register</a></div>
+    <button class="btn btn-primary"><a href="/upload/" style="text-decoration:none;color: goldenrod">Submit project</a></button>
+    
+    <button class="btn btn-primary"><a href="/accounts/login/" style="text-decoration:none; color:goldenrod">Login</a></button>
+
+    <button class="btn btn-primary"><a href="/signup/" style="text-decoration:none; color:goldenrod">Register</a></button>
     {% endif %}
         
             
