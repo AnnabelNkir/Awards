@@ -17,7 +17,7 @@
           <div class="card" style="width:320px">
               <div class="card-header">
                 {% if project.user.profile.pro_photo %}
-                <section> <img style="border-radius: 50% ; padding: 0.15rem;" class=" img-circle" src="{{project.user.profile.pro_photo.url}}" alt="" width="50px" height="50px">  <a href="/profiles/{{project.user.id}}" style="color:black"><strong> {{ project.user.username }}</strong></a></a></section>
+                <section> <img style="border-radius: 50% ; padding: 0.15rem;" class=" img-circle" src="{{project.user.profile.pro_photo.url}}" alt="" width="70px" height="50px">  <a href="/profiles/{{project.user.id}}" style="color:black"><strong> {{ project.user.username }}</strong></a></a></section>
                 {% else %}
                 <img src="https://mbtskoudsalg.com/images/user-avatar-png-1.png" alt="Avatar" class="img-responsive" style="border-radius:70%; height:50px;"> {{project.user.username }}
                 {% endif %}
