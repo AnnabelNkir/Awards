@@ -24,7 +24,7 @@ class Profile(models.Model):
 
 class Projects(models.Model):
     name = models.CharField(max_length =30,null=True)
-    screenshot = CloudinaryField = ('image')
+    screenshot = models.ImageField(upload_to = 'images/',null=True)
     description = models.TextField(null=True)
     link = models.URLField()
     user = models.ForeignKey(User, null=True, blank=True,
