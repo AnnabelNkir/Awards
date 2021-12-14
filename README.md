@@ -31,7 +31,7 @@ Step 5 : You can now launch the application locally by running the command pytho
 Step 6 : To create an account, run the command python manage.py createsuperuser to create an admin account in order to post. Access to the admin panel is by adding the path /admin to the address bar.
 
 
-To view the app, open the live site link provided below on the README. Here is a run through of how to set up the application:
+To view the app, open the live site link provided below on the README file. Here is a run through of how to set up the application:
 
 ```
 

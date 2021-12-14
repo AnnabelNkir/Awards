@@ -59,10 +59,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-0a7&t^nqp$q2u0p5cf@h5-th_+vzo+&pc^cy&&ed)x&m@%wa-j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
-LOGIN_REDIRECT_URL = 'home'
+ALLOWED_HOSTS = ['*']
+# LOGIN_REDIRECT_URL = 'home'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
