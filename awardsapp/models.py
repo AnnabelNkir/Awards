@@ -2,6 +2,7 @@ from django.db import models
 from tinymce.models import HTMLField
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator,MaxValueValidator
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Profile(models.Model):
@@ -23,7 +24,7 @@ class Profile(models.Model):
 
 class Projects(models.Model):
     name = models.CharField(max_length =30,null=True)
-    screenshot = models.ImageField(upload_to = 'images/',null=True)
+    screenshot = CloudinaryField = ('image')
     description = models.TextField(null=True)
     link = models.URLField()
     user = models.ForeignKey(User, null=True, blank=True,
