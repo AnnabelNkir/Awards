@@ -1,1 +1,1 @@
-web: gunicorn awardsapp.wsgi
+web: gunicorn awardsproject.wsgi
